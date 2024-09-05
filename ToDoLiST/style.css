@@ -1,0 +1,66 @@
+* {
+   margin : 0 ; 
+   padding : 0 ; 
+   box-sizing: border-box;
+}
+
+html , body { 
+    height : 100% ; 
+    width : 100% ; 
+}
+
+body { 
+    background-color: rgb(166, 250, 231);
+    position: relative ;
+}
+
+#main-container { 
+    height : 80% ; 
+    width : 80% ; 
+    background-color: white;
+    opacity : 0.2 ; 
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px ;
+    position: absolute ;
+    top : 10% ; 
+    left : 10% ; 
+}
+
+#heading { 
+    width : 100% ; 
+    display: flex; 
+    justify-content: center ;
+}
+
+#heading h1 { 
+    font-size: 3.5vw  ;
+    color: red;
+}
+
+#list { 
+    margin-top : 3vh ; 
+}
+
+#list input { 
+    text-align: center;
+    font-size: 1vw ;
+    margin-left : 2vw ; 
+    padding : 0.5vw ; 
+}
+
+#list button { 
+    font-size : 1vw ; 
+    margin-left : 2vw ; 
+    padding : 0.5vw ; 
+}
+
+#tasks { 
+    display : flex ; 
+    flex-direction: column; 
+    justify-content: center;
+    font-size: 2vw ;
+    margin : 0 0 2vw 6vw ;
+}
+
