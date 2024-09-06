@@ -39,7 +39,7 @@ add.addEventListener("click", () => {
     newDel.addEventListener("click", () => deleteThis(newDiv.id));
 
     // Clearing The InnerHtml 
-    input
+    input.value = "" ; 
 }); 
 
 // Making Delete This Button Work 
