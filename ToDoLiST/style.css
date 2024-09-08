@@ -1,7 +1,7 @@
-* {
-   margin : 0 ; 
-   padding : 0 ; 
-   box-sizing: border-box;
+* { 
+    margin : 0 ; 
+    padding : 0 ; 
+    box-sizing: border-box;
 }
 
 html , body { 
@@ -10,57 +10,125 @@ html , body {
 }
 
 body { 
-    background-color: rgb(166, 250, 231);
-    position: relative ;
+    background-color: #1C2032 ;
+    display: flex ;
+    justify-content: center;
+    align-items: center ;
+    background-image: url("resources/yuji-itadori-anime-boy-5k-ph-2880x1800.jpg");
+    background-position: center ;
+    background-size: cover ;
 }
 
-#main-container { 
-    height : 80% ; 
-    width : 80% ; 
-    background-color: white;
-    opacity : 0.2 ; 
+#main { 
+    position: absolute;
+    height : 90% ; 
+    width : 70% ; 
+    background : rgba(255 , 255 , 255 , 0.1) ;
+    box-shadow: 0 25px 45px rgba(0, 0, 0, .2);
+    border-radius: 50px;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-right: 2px solid rgba(255, 255, 255, .2);
+    border-bottom: 2px solid rgba(255, 255, 255, .2);
     backdrop-filter: blur(10px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 15px ;
-    position: absolute ;
-    top : 10% ; 
-    left : 10% ; 
+    display: flex ;
+    flex-direction: column ;
 }
 
-#heading { 
+#header {
     width : 100% ; 
-    display: flex; 
+    height : 10%  ; 
+    display: flex ;
     justify-content: center ;
 }
 
-#heading h1 { 
-    font-size: 3.5vw  ;
-    color: red;
+#head { 
+    height : 100%  ;
+    width : 12vw ; 
+}
+
+#head h1 { 
+      font-size: 4vw ;
+      color : black ; 
+}
+
+#backbone { 
+    height : auto ; 
+    width : 100% ; 
+    display: flex ; 
+    flex-direction: column ;
+}
+
+#infobar { 
+    width : 100% ; 
+    height : 6vw ; 
+    display: flex ;
+    align-items: center ;
+    justify-content: center;
+    gap : 1.5vw ; 
+}
+
+#infobar h1 { 
+    font-size: 3vw ;
+    color : black   ; 
+}
+
+#bar { 
+    height : 1.5vw ; 
+    width : 22vw ; 
+    background-color: red ;
+    border-radius: 15px ;
+    overflow: hidden;
+}
+
+#prgbar { 
+    height : 1.5vw ; 
+    width : 0 ; 
+    background-color: green ;
+    border: 2px solid white ;
+    border-radius: 15px ;
+    transition: width 0.5s ease;
+}
+
+#todolist { 
+    height : auto ; 
+    width : 100% ; 
+}
+
+#controlsys { 
+    height : 4vw ; 
+    width : 100% ; 
+    display: flex ;
+    align-items: center ;
+    justify-content: center ;
+    gap : 2vw ; 
+    margin-top : 2vw ;
+}
+
+#controlsys input { 
+    font-size : 1.8vw ; 
+    padding :  0.6vw 0 0.6vw 0  ; 
+    border-radius: 25px ;
+    text-align: center ;
+    border : 2px solid #f72585 ;
+    background-color: wheat ; 
+}
+
+#controlsys button { 
+    font-size : 1.8vw ; 
+    padding :  0.6vw  1vw   ; 
+    border-radius: 25px ;
+    text-align: center ;
+    border : 2px solid #f72585 ;
+    background-color: wheat ; 
+    color : grey ; 
 }
 
 #list { 
-    margin-top : 3vh ; 
+    height : auto ; 
+    width : 100% ;
+    display: flex ;
+    flex-direction: column ;
 }
 
-#list input { 
-    text-align: center;
-    font-size: 1vw ;
-    margin-left : 2vw ; 
-    padding : 0.5vw ; 
-}
 
-#list button { 
-    font-size : 1vw ; 
-    margin-left : 2vw ; 
-    padding : 0.5vw ; 
-}
-
-#tasks { 
-    display : flex ; 
-    flex-direction: column; 
-    justify-content: center;
-    font-size: 2vw ;
-    margin : 0 0 2vw 6vw ;
-}
 

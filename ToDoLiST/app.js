@@ -1,53 +1,94 @@
-const input = document.querySelector("input"); 
-const add = document.querySelector("#add"); 
+const inp = document.querySelector("input"); 
+const but = document.querySelector("button"); 
+const todos = document.querySelector("#list"); 
+const percent = document.querySelector("#percent"); 
+const green = document.querySelector("#prgbar"); 
 
-let divNo = 0;
-let delNo = 0;
+const todo = [];
 
-// Adding ToDo Element
-add.addEventListener("click", () => { 
-    // creating Div For Element 
-    divNo += 1; 
-    let newDiv = document.createElement("div"); 
-    newDiv.id = `div-${divNo}`; 
+but.addEventListener('click', () => { 
+    todo.push({
+        title: inp.value , 
+        checked : false  
+    }); 
+    inp.value = ""; 
+    render(); 
+    updateProgressBar() ; 
+});
+
+const component = (currTodoEl, i) => { 
+    let newDiv = document.createElement("div");
     newDiv.style.display = "flex"; 
-    newDiv.style.alignItems = "center"; 
-    newDiv.style.gap = "2vw"; 
+    newDiv.style.gap = "1.5vw"; 
+    newDiv.style.margin = "1vw 0 0.8vw 3vw ";
 
-    let parent = document.querySelector("#tasks"); 
-    parent.appendChild(newDiv);
+    let newTodo = document.createElement("h1");
+    newTodo.style.color = "white" ; 
+    newTodo.innerHTML = currTodoEl.title;
 
-    // creating ToDo Element
-    let newEl = document.createElement("h3"); 
-    newEl.innerHTML = input.value; 
-    newDiv.appendChild(newEl); 
+    let newDel = document.createElement("button");
+    newDel.innerHTML = "Remove"; 
+    newDel.style.borderRadius = "25px"
+    newDel.style.padding = "1vh 1vw"
 
-    // creating delete button 
-    delNo += 1; 
-    let newDel = document.createElement("button"); 
-    newDel.id = `del-${delNo}`;
-    newDel.className = "delete"; 
-    newDel.style.fontSize = "1vw"; 
-    newDel.style.marginLeft = "2vw"; 
-    newDel.style.padding = "0.5vw"; 
-    newDel.innerHTML = "Delete This";
+    let check = document.createElement("input") ; 
+    check.type = "checkbox" ; 
+    check.style.scale = "1.5" ;
+    check.checked = currTodoEl.checked; 
+    check.dataset.index = i; 
 
-    // Appending the delete button to the div
-    newDiv.appendChild(newDel);
+    check.addEventListener('change', () => {
+        const index = check.dataset.index; 
+        todo[index].checked = check.checked;
+        updateProgressBar();
+    });
 
-    // Adding event listener for delete button
-    newDel.addEventListener("click", () => deleteThis(newDiv.id));
+    newDel.addEventListener('click', () => {
+        todo.splice(i, 1); 
+        render(); 
+        updateProgressBar() ; 
+    });
+    
+    newDiv.appendChild(check); 
+    newDiv.appendChild(newTodo); 
+    newDiv.appendChild(newDel); 
+    
+    return newDiv; 
+}
 
-    // Clearing The InnerHtml 
-    input.value = "" ; 
-}); 
+const render = () => { 
+    todos.innerHTML = "";
+    for (let i = 0; i < todo.length; i++) { 
+       let el = component(todo[i], i);
+       todos.appendChild(el);   
+       green.style.width = "0" ; 
+       percent.innerHTML = "0%" ; 
+    }
+}
 
-// Making Delete This Button Work 
-const deleteThis = (id) => { 
-    let deleting = document.querySelector(`#${id}`); 
-    let parent = document.querySelector("#tasks"); 
-    parent.removeChild(deleting); 
-};
+
+const updateProgressBar = () => {
+    const total = todo.length;
+    const checkedCheckboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+    const numberOfCheckedCheckboxes = checkedCheckboxes.length;
+    const prcnt = (total > 0) ? (numberOfCheckedCheckboxes / total) * 100 : 0;
+
+    percent.innerHTML = `${prcnt.toFixed(1)}%`;
+    const wid = (prcnt / 100) * 100 ; 
+    green.style.width = `${wid}%`;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

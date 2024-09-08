@@ -4,16 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>To Do List</title>
+    <title>ToDo</title>
 </head>
 <body>
-    <div id="main-container">
-        <div id="heading"><h1>To Do List</h1></div>
-        <div id="list">
-            <div id="tasks"></div>
-            <input type="text" placeholder="Write Task">
-            <button id="add">Add ToDo</button>
-    </div>
+    <div id="main">
+         <div id="header">
+            <div id="head"><h1>To Do</h1></div>
+         </div>
+         <div id="backbone">
+            <div id="infobar">
+                <h1>Tasks Done</h1>
+                <div id="bar">
+                      <div id="prgbar"></div>
+                </div>
+                <h1 id="percent">0%</h1>
+            </div>
+            <div id="todolist">
+                <div id="controlsys">
+                    <input type="text" placeholder="Type Here">
+                    <button>Add ToDo</button>
+                </div>
+                <div id="list"></div>
+            </div>
+        </div>
     </div>
     <script src="app.js"></script>
 </body>
